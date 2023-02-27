@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'b'}
+    agent {label 'docker'}
     stages {
         stage('my Build') {
             steps {
@@ -17,7 +17,7 @@ pipeline {
             }
         } 
         stage( 'my deploy' ) {
-        agent {label 's'}
+        agent {label 'k8smaster'}
             steps {
                sh 'helm package ./tomcat --version=${BUILD_NUMBER}'
                sh 'tar -xvf tomcat-${BUILD_NUMBER}.tgz'
