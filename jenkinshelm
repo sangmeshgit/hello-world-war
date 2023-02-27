@@ -17,11 +17,11 @@ pipeline {
             }
         } 
         stage( 'my deploy' ) {
-        agent {label 's'} 
+        agent {label 's'}
             steps {
                sh 'helm package ./tomcat --version=${BUILD_NUMBER}'
                sh 'tar -xvf tomcat-${BUILD_NUMBER}.tgz'
-               sh 'helm upgrade --install tomcat helm/tomcat --version=${BUILD_NUMBER} --set name=sangmeshbhure/bhure:${BUILD_NUMBER}
+               sh 'helm upgrade --install tomcat ./tomcat --set name=sangmeshbhure/bhure:${BUILD_NUMBER}'
             }
         }    
     } 
