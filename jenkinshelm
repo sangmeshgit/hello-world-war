@@ -22,7 +22,7 @@ pipeline {
                sh 'helm package ./tomcat --version=${BUILD_NUMBER}'
                sh 'tar -xvf tomcat-${BUILD_NUMBER}.tgz'
                sh 'helm upgrade --install tomcat ./tomcat --set image=sangmeshbhure/bhure:${BUILD_NUMBER}'
-               sh 'curl -uwaliuddin8792@gmail.com:Wali@8792 -T /root/workspace/sangmeshproject/tomcat-2.2.5.tgz \"https://waliuddin8792.jfrog.io/artifactory/helm/tomcat-2.2.5.tgz\"'
+               sh 'curl -uwaliuddin8792@gmail.com:Wali@8792 -T tomcat-${BUILD_NUMBER}.tgz \"https://waliuddin8792.jfrog.io/artifactory/helm/tomcat-${BUILD_NUMBER}.tgz\"'
             }
         }    
     } 
