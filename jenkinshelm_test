@@ -8,7 +8,7 @@ pipeline {
             }
         }  
         stage('publish stage') {
-        agent {lable 'slave1'}
+        agent {label 'slave1'}
             steps {
                 sh "echo ${BUILD_NUMBER}"
                 withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
