@@ -53,7 +53,7 @@ h3 {
 <div class="bgimg-1">
   <div class="caption">
     <span class="border">HELLO</span><br>
-    <span class="border">NAMASKAR RI</span>
+    <span class="border">NAMASKAR RI ANNA</span>
   </div>
 </div>
 
