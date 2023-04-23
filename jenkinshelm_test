@@ -18,7 +18,7 @@ pipeline {
             }
         }    
         stage( 'my deploy' ) {
-        agent {label 'k8smaster'}
+        agent {label 'slave2'}
             steps {
                sh 'helm package ./tomcat --version=${BUILD_NUMBER}'
                sh 'tar -xvf tomcat-${BUILD_NUMBER}.tgz'
