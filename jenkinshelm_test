@@ -8,6 +8,7 @@ pipeline {
             }
         }  
         stage('publish stage') {
+        angent {lable 'slave1'}
             steps {
                 sh "echo ${BUILD_NUMBER}"
                 withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
