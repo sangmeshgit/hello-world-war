@@ -2,10 +2,10 @@ pipeline {
     agent none
     stages {
         stage ('my build') {
-            agent { label 'master' }
+            agent { label 'tomcat' }
             steps {
                 sh 'sudo mvn package'
-                sh 'scp -r target/hello-world-war-1.0.0.war root@10.0.0.159:/opt/tomcat/webapps'
+                sh 'mv target/hello-world-war-1.0.0.war /opt/tomcat/webapps'
             }
         }
         stage ('my deploy') {
