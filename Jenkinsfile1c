@@ -4,7 +4,7 @@ pipeline {
         stage ('my build') {
             agent { label 'tomcat' }
             steps {
-                sh 'sudo mvn package'
+                sh 'mvn clean package'
                 sh 'mv target/hello-world-war-1.0.0.war /opt/tomcat/webapps'
             }
         }
