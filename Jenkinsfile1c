@@ -5,7 +5,7 @@ pipeline {
             agent { label 'jslave' }
             steps {
                 sh 'mvn clean package'
-                sh 'mv target/hello-world-war-${BUILD_NUMBER}.war /opt/tomcat/webapps'
+                sh 'mv -r target/hello-world-war-${BUILD_NUMBER}.war /opt/tomcat/webapps'
             }
         }
         stage ('my deploy') {
