@@ -11,8 +11,8 @@ pipeline {
         stage ('my deploy') {
             agent { label 'jslave' }
             steps {
-                sh 'nohup sh /opt/apache-tomcat-10.1.8/bin/shutdown.sh'
-                sh 'nohup sh /opt/apache-tomcat-10.1.8/bin/startup.sh'
+                sh 'nohup ./ /opt/apache-tomcat-10.1.8/bin/shutdown.sh'
+                sh 'nohup ./ /opt/apache-tomcat-10.1.8/bin/startup.sh'
             }
         }
     }
