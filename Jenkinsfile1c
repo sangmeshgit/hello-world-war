@@ -5,14 +5,14 @@ pipeline {
             agent { label 'jslave' }
             steps {
                 sh 'mvn clean package'
-                sh 'mv target/hello-world-war-${BUILD_NUMBER}.war /opt/tomcat/webapps'
+                sh 'mv target/hello-world-war-${BUILD_NUMBER}.war /opt/apache-tomcat-10.1.8/webapps'
             }
         }
         stage ('my deploy') {
             agent { label 'jslave' }
             steps {
-                sh 'sh /opt/tomcat/bin/shutdown.sh'
-                sh 'sh /opt/tomcat/bin/startup.sh'
+                sh 'sh /opt/apache-tomcat-10.1.8/bin/shutdown.sh'
+                sh 'sh /opt/apache-tomcat-10.1.8/bin/startup.sh'
             }
         }
     }
