@@ -2,14 +2,14 @@ pipeline {
     agent none
     stages {
         stage ('my build') {
-            agent { label 'jslave' }
+            agent { label 'sample' }
             steps {
                 sh 'mvn clean package'
                 sh 'mv target/hello-world-war-${BUILD_NUMBER}.war /opt/apache-tomcat-10.1.8/webapps'
             }
         }
         stage ('my deploy') {
-            agent { label 'jslave' }
+            agent { label 'sample' }
             steps {
                 sh '/opt/apache-tomcat-10.1.8/bin/shutdown.sh'
                 sh '/opt/apache-tomcat-10.1.8/bin/startup.sh'
