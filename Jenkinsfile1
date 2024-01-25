@@ -5,14 +5,14 @@ pipeline {
             agent { label 'build' }
             steps {
                 sh 'sudo mvn package'
-                sh 'scp -r target/hello-world-war-1.0.0.war deploy@172.31.46.138:/opt/tomcat/webapps'
+                sh 'scp -r target/hello-world-war-1.0.0.war root@13.234.232.107:/root/apache-tomcat-10.1.18/webapps'
             }
         }
         stage ('my deploy') {
             agent { label 'deploy' }
             steps {
-                sh 'sudo sh /opt/tomcat/bin/shutdown.sh'
-                sh 'sudo sh /opt/tomcat/bin/startup.sh'
+                sh 'sudo sh /apache-tomcat-10.1.18/bin/bin/shutdown.sh'
+                sh 'sudo sh /apache-tomcat-10.1.18/bin/tomcat/bin/startup.sh'
             }
         }
     }
