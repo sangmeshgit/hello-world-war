@@ -5,7 +5,7 @@ pipeline {
             agent { label 'build' }
             steps {
                 sh 'sudo mvn package'
-                sh 'sudo scp -r target/hello-world-war-null.war root@13.234.232.107:/opt/apache/webapps'
+                sh 'sudo scp -r target/hello-world-war-${BUILD_NUMBER}.war root@13.234.232.107:/opt/apache/webapps'
             }
         }
         stage ('my deploy') {
