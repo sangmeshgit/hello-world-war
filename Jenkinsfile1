@@ -12,7 +12,7 @@ pipeline {
             agent { label 'deploy' }
             steps {
                 sh 'sudo sh /opt/apache/bin/shutdown.sh'
-                sh 'sudo sh /opt/apache/bin/tomcat/bin/startup.sh'
+                sh 'sudo sh /opt/apache/bin/startup.sh'
             }
         }
     }
