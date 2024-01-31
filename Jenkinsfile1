@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'sudo mvn package'
                 sh 'sudo mv /root/workspace/pipeline1/target/hello-world-war-null.war /root/workspace/pipeline1/target/hello-world-war-${BUILD_NUMBER}.war' 
-                sh 'sudo scp -r target/hello-world-war-${BUILD_NUMBER}.war root@13.234.232.107:/opt/apache/webapps'
+                sh 'sudo scp -r target/hello-world-war-${BUILD_NUMBER}.war root@3.108.56.219:/opt/apache/webapps'
             }
         }
         stage ('my deploy') {
